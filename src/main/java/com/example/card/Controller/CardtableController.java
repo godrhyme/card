@@ -1,4 +1,4 @@
 package com.example.card.Controller;
 
-public class cardtableController {
+public class CardtableController {
 }

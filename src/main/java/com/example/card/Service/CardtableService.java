@@ -1,4 +1,4 @@
 package com.example.card.Service;
 
-public class cardtableService {
+public class CardtableService {
 }

@@ -1,4 +1,4 @@
 package com.example.card.Dao;
 
-public interface cardtableDao {
+public interface CardtableDao {
 }

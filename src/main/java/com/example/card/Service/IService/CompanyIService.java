@@ -1,4 +1,4 @@
 package com.example.card.Service.IService;
 
-public interface companyIService {
+public interface CompanyIService {
 }
