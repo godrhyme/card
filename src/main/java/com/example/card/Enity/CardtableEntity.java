@@ -7,24 +7,36 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+
 @Entity
 @Data
-@Table(name = "company")
+@Table(name = "cardtable")
 @EntityListeners(AuditingEntityListener.class)
-public class CompanyEnity implements Serializable {
+public class CardtableEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long cid;
+    Long id;
 
-    String name;
+    Date date;
 
-    Date creat_time;
+    String adress;
 
-    String location;
+    String temperature;
 
     String description;
 
+    Boolean ifcontinue;
 
-    Long uid;
+    Boolean ifgoout;
+
+    @JoinColumn(name = "user_id")
+    @ManyToOne
+    UserEntity userEntity;
+
+    @JoinColumn(name = "company_id")
+    @ManyToOne
+    CompanyEntity companyEntity;
+
+
 
 }

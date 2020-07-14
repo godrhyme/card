@@ -13,4 +13,7 @@ public interface UserIService {
     //获取用户信息
     Object user_info();
 
+    //修改用户信息
+    Object user_change();
+
 }
