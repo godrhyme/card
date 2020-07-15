@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.NonNull;
 
 @Data
-public class CardtavleVo {
+public class CardtableVo {
 
     @NonNull
     String temperature;

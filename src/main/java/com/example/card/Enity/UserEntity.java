@@ -1,6 +1,8 @@
 package com.example.card.Enity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -11,7 +13,8 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Table(name = "user")
 @EntityListeners(AuditingEntityListener.class)
 public class UserEntity implements Serializable {
@@ -31,14 +34,14 @@ public class UserEntity implements Serializable {
     String favicon;
 
     @ManyToMany
-    Set<CompanyEntity> company_join=new HashSet<>();
+    Set<CompanyEntity> my_join=new HashSet<>();
 
-    @JoinColumn(name = "user_id")
-    @OneToMany(cascade = CascadeType.ALL)
-    List<CompanyEntity> company_creat = new ArrayList<>();
+    @JoinColumn(name = "create_by")
+    @OneToMany(cascade = CascadeType.REMOVE)
+    Set<CompanyEntity> my_company = new HashSet<>();
 
-    @JoinColumn(name = "user_id")
-    @OneToMany(cascade = CascadeType.ALL)
-    List<CardtableEntity> cardtableEntities = new ArrayList<>();
+    @JoinColumn(name = "create_by")
+    @OneToMany(cascade = CascadeType.REMOVE)
+    Set<CardtableEntity> my_card = new HashSet<>();
 
 }

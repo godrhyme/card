@@ -1,16 +1,19 @@
 package com.example.card.Enity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Table(name = "company")
 @EntityListeners(AuditingEntityListener.class)
 public class CompanyEntity implements Serializable {
@@ -20,23 +23,20 @@ public class CompanyEntity implements Serializable {
 
     String name;
 
+    @CreatedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     Date creat_time;
 
     String location;
 
     String description;
 
-    @ManyToMany(cascade = CascadeType.MERGE,mappedBy = "company_join")
-    List<UserEntity> joiners=new ArrayList<>();
+    @ManyToMany
+    Set<UserEntity> joiners=new HashSet<>();
 
     @JoinColumn(name = "user_id")
     @ManyToOne
-    UserEntity userEntity;
-
-    @JoinColumn(name = "company_id")
-    @OneToMany(cascade = CascadeType.ALL)
-    List<CardtableEntity> cardtableEntities = new ArrayList<>();
-
-
+    UserEntity creator;
 
 }

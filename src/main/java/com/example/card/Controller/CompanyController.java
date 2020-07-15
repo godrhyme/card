@@ -41,12 +41,12 @@ public class CompanyController {
         return companyService.company_search(cid);
     }
 
-    @GetMapping("/join/{uid}{cid}")
+    @GetMapping("/join")
     Object company_join(Long uid, Long cid) {
         return companyService.company_join(uid,cid);
     }
 
-    @GetMapping("/exit/{uid}{cid}")
+    @GetMapping("/exit")
     Object company_exit(Long uid, Long cid) {
         return companyService.company_exit(uid,cid);
     }

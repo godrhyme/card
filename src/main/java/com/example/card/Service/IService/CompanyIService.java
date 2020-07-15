@@ -27,4 +27,7 @@ public interface CompanyIService {
     //查询公司表单
     Object company_card(Long cid);
 
+    //查询公司成员
+    Object company_member(Long cid);
+
 }
