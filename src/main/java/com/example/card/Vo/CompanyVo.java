@@ -16,4 +16,10 @@ public class CompanyVo implements Serializable {
     String description;
 
     Long uid;
+
+    Long cid;
+
+    public CompanyVo() {
+
+    }
 }

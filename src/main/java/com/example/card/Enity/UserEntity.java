@@ -27,14 +27,18 @@ public class UserEntity implements Serializable {
 
     String password;
 
-    String name;
+    String name = "未设置昵称";
 
     String phone;
 
-    String favicon;
+    //用户头像
+    private String user_favicon = "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1171074120,2891197699&fm=26&gp=0.jpg";
 
     @ManyToMany
     Set<CompanyEntity> my_join=new HashSet<>();
+
+    @ManyToMany
+    Set<CompanyEntity> my_apply=new HashSet<>();
 
     @JoinColumn(name = "create_by")
     @OneToMany(cascade = CascadeType.REMOVE)
@@ -43,5 +47,7 @@ public class UserEntity implements Serializable {
     @JoinColumn(name = "create_by")
     @OneToMany(cascade = CascadeType.REMOVE)
     Set<CardtableEntity> my_card = new HashSet<>();
+
+    //ImageEntity imageEntity;
 
 }

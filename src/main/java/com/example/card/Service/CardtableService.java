@@ -12,7 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -28,6 +32,7 @@ public class CardtableService implements CardtableIService {
     @Override
     @Transactional
     public Object card_submit(CardtableVo cardtableVo) {
+
         CardtableEntity cardtableEntity = new CardtableEntity();
         UserEntity userEntity =userDao.findUserEnityByUid(cardtableVo.getUid());
 
@@ -35,7 +40,6 @@ public class CardtableService implements CardtableIService {
         cardtableEntity.setTemperature(cardtableVo.getTemperature());
         cardtableEntity.setDescription(cardtableVo.getDescription());
         cardtableEntity.setIfgoout(cardtableEntity.getIfgoout());
-
         cardtableEntity.setCreator(userEntity);
         userEntity.getMy_card().add(cardtableEntity);
 
@@ -44,9 +48,21 @@ public class CardtableService implements CardtableIService {
     }
 
     @Override
-    public Object card_search(Long id) {
-        CardtableEntity cardtableEntity = cardtableDao.findCardtableEntityById(id);
-        return ResponseBody.Success(new CardtablePojo(cardtableEntity));
+    public Object card_search(Long uid, Date date) {
+        Date date2;
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.DAY_OF_MONTH, 1);
+        date2=c.getTime();
+        List<CardtableEntity> list= cardtableDao.findCardtableEntityByIdAndDate(uid,date,date2);
+        if (list==null){
+            return ResponseBody.UserNotExist();
+        }else {
+            List<CardtablePojo> pojos= new ArrayList<>();
+            list.forEach(item->{{ pojos.add(new CardtablePojo(item));};
+            });
+            return ResponseBody.Success(pojos);
+        }
     }
 
     @Override

@@ -10,10 +10,7 @@ public interface UserIService {
     //注册
     Object register(UserVo userVo);
 
-    //获取用户信息
-    Object user_info();
-
     //修改用户信息
-    Object user_change();
+    Object user_change(UserVo userVo,Long uid);
 
 }

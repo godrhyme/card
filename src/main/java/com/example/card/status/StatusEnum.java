@@ -27,6 +27,8 @@ public enum StatusEnum implements Serializable {
     Success(1000,"操作成功");
 
 
+
+
     private String msg;
     private int code;
 

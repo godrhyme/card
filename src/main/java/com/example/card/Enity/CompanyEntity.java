@@ -35,6 +35,9 @@ public class CompanyEntity implements Serializable {
     @ManyToMany
     Set<UserEntity> joiners=new HashSet<>();
 
+    @ManyToMany
+    Set<UserEntity> applicants=new HashSet<>();
+
     @JoinColumn(name = "user_id")
     @ManyToOne
     UserEntity creator;

@@ -1,7 +1,10 @@
 package com.example.card.Vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NonNull;
+
+import java.util.Date;
 
 @Data
 public class CardtableVo {
@@ -18,4 +21,7 @@ public class CardtableVo {
     String description;
 
     Long uid;
+
+
+    public CardtableVo(){}
 }

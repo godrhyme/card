@@ -15,6 +15,8 @@ public class CompanyPojo {
 
     String location;
 
+    String creator;
+
     String description;
 
     public CompanyPojo(CompanyEntity companyEntity){
@@ -23,5 +25,6 @@ public class CompanyPojo {
         this.setCreat_time(companyEntity.getCreat_time());
         this.setLocation(companyEntity.getLocation());
         this.setDescription(companyEntity.getDescription());
+        this.setCreator(companyEntity.getCreator().getName());
     }
 }

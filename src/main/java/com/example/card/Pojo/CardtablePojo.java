@@ -24,11 +24,11 @@ public class CardtablePojo {
 
     public CardtablePojo(CardtableEntity cardtableEntity){
         this.id=cardtableEntity.getId();
-        this.setDate(cardtableEntity.getDate());
         this.setAdress(cardtableEntity.getAdress());
         this.setTemperature(cardtableEntity.getTemperature());
         this.setDescription(cardtableEntity.getDescription());
         this.setIfcontinue(cardtableEntity.getIfcontinue());
         this.setIfgoout(cardtableEntity.getIfgoout());
+        this.setDate(cardtableEntity.getDate());
     }
 }
