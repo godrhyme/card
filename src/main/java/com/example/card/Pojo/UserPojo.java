@@ -13,13 +13,16 @@ public class UserPojo {
 
     String phone;
 
-    String user_favicon;
+    Boolean card_today;
+
+    String favicon;
 
     public UserPojo(UserEntity userEntity){
         this.uid=userEntity.getUid();
         this.setName(userEntity.getName());
         this.setPhone(userEntity.getPhone());
-        this.setUser_favicon(userEntity.getUser_favicon());
+        this.setCard_today(userEntity.getCard_today());
+        this.favicon=userEntity.getFavicon().getImage_url();
     }
 
 }

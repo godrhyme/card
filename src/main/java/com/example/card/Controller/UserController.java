@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @PostMapping("/user_info")
-    public Object user_info(@RequestBody UserVo userVo,Long id) {
-        return userService.user_change(userVo,id);
+    public Object user_info(UserVo userVo) {
+        return userService.user_change(userVo);
     }
 }

@@ -27,12 +27,12 @@ public class UserEntity implements Serializable {
 
     String password;
 
-    String name = "未设置昵称";
+    private String name = "未设置昵称";
 
     String phone;
 
-    //用户头像
-    private String user_favicon = "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1171074120,2891197699&fm=26&gp=0.jpg";
+    //今日是否打卡
+    private Boolean card_today = false;
 
     @ManyToMany
     Set<CompanyEntity> my_join=new HashSet<>();
@@ -48,6 +48,9 @@ public class UserEntity implements Serializable {
     @OneToMany(cascade = CascadeType.REMOVE)
     Set<CardtableEntity> my_card = new HashSet<>();
 
-    //ImageEntity imageEntity;
+    //用户头像
+    @JoinColumn(name = "favicon_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    ImageEntity favicon ;
 
 }

@@ -41,7 +41,9 @@ public class CardtableService implements CardtableIService {
         cardtableEntity.setDescription(cardtableVo.getDescription());
         cardtableEntity.setIfgoout(cardtableEntity.getIfgoout());
         cardtableEntity.setCreator(userEntity);
+
         userEntity.getMy_card().add(cardtableEntity);
+        userEntity.setCard_today(true);
 
         cardtableDao.save(cardtableEntity);
         return ResponseBody.Success();

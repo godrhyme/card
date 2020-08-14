@@ -11,6 +11,6 @@ public interface UserIService {
     Object register(UserVo userVo);
 
     //修改用户信息
-    Object user_change(UserVo userVo,Long uid);
+    Object user_change(UserVo userVo);
 
 }
